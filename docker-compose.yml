@@ -8,7 +8,7 @@ services:
     networks:
       - backend
     volumes:
-      - /mnt/config-storage/searx/searx:/etc/searx:rw
+      - searx-data:/etc/searx:rw
 #    logging:
 #      driver: none
     deploy:
@@ -43,13 +43,11 @@ services:
     filtron-server:
       image: dalf/filtron:latest
       hostname: filtron
-      networks:
-        - traefik-public
-        - backend
-      ports:
-        - "127.0.0.1:4041:4041"
+      networ  searx-rules:
+    driver: glusterfs
+    name: "config1/searx/searx-rules"
       volumes:
-        - /mnt/config-storage/searx/rules.json:/etc/filtron/rule.json:rw
+        - /mnt-gluster/config-1/searx/rules.json:/etc/filtron/rule.json:rw
 #      logging:
 #        driver: none
       deploy:
@@ -140,3 +138,9 @@ networks:
   traefik-public:
     external: true
   backend:
+    driver: overlay
+
+volumes:
+  searx-data:
+    driver: glusterfs
+    name: "config1/searx/searx-data"
