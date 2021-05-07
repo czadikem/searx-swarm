@@ -43,9 +43,8 @@ services:
     filtron-server:
       image: dalf/filtron:latest
       hostname: filtron
-      networ  searx-rules:
-    driver: glusterfs
-    name: "config1/searx/searx-rules"
+      networks:
+        - backend
       volumes:
         - /mnt-gluster/config-1/searx/rules.json:/etc/filtron/rule.json:rw
 #      logging:
