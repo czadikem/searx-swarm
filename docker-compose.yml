@@ -8,7 +8,7 @@ services:
     networks:
       - backend
     volumes:
-      - searx-data:/etc/searx:rw
+      - /mnt-gluster/config-1/searx/searx-data:/etc/searx:rw
 #    logging:
 #      driver: none
     deploy:
@@ -138,8 +138,3 @@ networks:
     external: true
   backend:
     driver: overlay
-
-volumes:
-  searx-data:
-    driver: glusterfs
-    name: "config1/searx/searx-data"
