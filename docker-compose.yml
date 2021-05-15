@@ -73,7 +73,6 @@ services:
         - "traefik.http.routers.searx-filtron.middlewares=searx-dynamic-headers,searx-csp-headers"
         - "traefik.http.routers.searx-filtron.entrypoints=websecure"
         - "traefik.http.routers.searx-filtron.service=searx-filtron-service"
-        - "traefik.http.services.searx-filtron-service.loadbalancer.server.port=4040"
         # Filtron Static file Router
         - "traefik.http.routers.searx-static.rule=Host(`${SEARX_HOSTNAME}`) && PathPrefix(`/static`)"
         - "traefik.http.routers.searx-static.tls.certresolver=letsencrypt"
