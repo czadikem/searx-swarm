@@ -70,12 +70,12 @@ services:
         # Filtron Router
         - "traefik.http.routers.searx-filtron.rule=Host(`${SEARX_HOSTNAME:-localhost}`)"
         - "traefik.http.routers.searx-filtron.tls.certresolver=letsencrypt"
-        - "traefik.http.routers.searx-filtron.entrypoints=https"
+        - "traefik.http.routers.searx-filtron.entrypoints=websecure"
         - "traefik.http.routers.searx-filtron.middlewares=searx-global-headers,searx-dynamic-headers,searx-csp-headers"
         # Filtron Static file Router
         - "traefik.http.routers.searx-static.rule=Host(`${SEARX_HOSTNAME:-localhost}`) && PathPrefix(`/static`)"
         - "traefik.http.routers.searx-static.tls.certresolver=letsencrypt"
-        - "traefik.http.routers.searx-static.entrypoints=https"
+        - "traefik.http.routers.searx-static.entrypoints=websecure"
         - "traefik.http.routers.searx-static.middlewares=searx-global-headers,searx-static-headers,searx-csp-headers"
         - "traefik.http.services.filtron-searx-traefik-docker.loadbalancer.server.port=4040"
 
