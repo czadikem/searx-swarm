@@ -78,6 +78,10 @@ services:
         - "traefik.http.routers.searx-static.middlewares=searx-global-headers,searx-static-headers,searx-csp-headers"
         - "traefik.http.services.filtron-searx-traefik-docker.loadbalancer.server.port=4040"
 
+        # Sticky cookie
+        - "traefik.http.services.filtron-searx-traefik-docker.sticky.cookie=true"
+        - "traefik.http.services.filtron-searx-traefik-docker.sticky.cookie.secure=true"
+
         - "traefik.http.middlewares.searx-filtron.compress=true"
         
         # Header middleware for searx global
