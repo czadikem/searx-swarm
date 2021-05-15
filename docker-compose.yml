@@ -2,9 +2,8 @@ version: '3.8'
 
 services:
 
-  searx-server:
+  searx:
     image: searx/searx:latest
-    hostname: searx
     networks:
       - backend
     volumes:
@@ -40,9 +39,8 @@ services:
       - SETUID
       - DAC_OVERRIDE
     
-  filtron-server:
+  filtron:
     image: dalf/filtron:latest
-    hostname: filtron
     networks:
       - backend
     volumes:
@@ -110,9 +108,8 @@ services:
     cap_drop:
       - ALL
 
-  morty-server:
+  morty:
     image: dalf/morty:latest
-    hostname: morty
     networks:
       - traefik-public
       - backend
