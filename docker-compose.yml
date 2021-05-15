@@ -43,6 +43,7 @@ services:
     image: dalf/filtron:latest
     networks:
       - backend
+      - traefik-public
     volumes:
       - /mnt-gluster/config-1/searx/rules.json:/etc/filtron/rules.json:rw
 #      logging:
