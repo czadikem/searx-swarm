@@ -46,7 +46,7 @@ services:
     networks:
       - backend
     volumes:
-      - /mnt-gluster/config-1/searx/rules.json:/etc/filtron/rule.json:rw
+      - /mnt-gluster/config-1/searx/rules.json:/etc/filtron/rules.json:rw
 #      logging:
 #        driver: none
     deploy:
