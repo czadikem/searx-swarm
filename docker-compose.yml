@@ -7,7 +7,7 @@ services:
     networks:
       - backend
     volumes:
-      - /mnt-gluster/config-1/searx/searx:/etc/searx:rw
+      - ./searx:/etc/searx:rw
 #    logging:
 #      driver: none
     deploy:
@@ -45,7 +45,7 @@ services:
       - backend
       - traefik-public
     volumes:
-      - /mnt-gluster/config-1/searx/rules.json:/etc/filtron/rules.json:rw
+      - ./rules.json:/etc/filtron/rules.json:rw
 #      logging:
 #        driver: none
     deploy:
